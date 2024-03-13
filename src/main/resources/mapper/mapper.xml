@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.AutoTrading.Server.AutoTrading_Mapper">
+
+    <insert id="InsertAutoTradingInfo" parameterType="java.util.ArrayList" statementType="CALLABLE">
+        {call AUTOTRADING_INFO(
+            <foreach collection="list" item="item" separator=",">
+                #{item, mode=IN, jdbcType=VARCHAR}
+            </foreach>
+        )}
+    </insert>
+</mapper>
